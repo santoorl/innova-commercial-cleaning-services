@@ -1,4 +1,5 @@
 import React from 'react';
+import RequestCallback from '../components/RequestCallback';
 
 const Home = () => {
   return (
@@ -51,6 +52,11 @@ const Home = () => {
         <button className="bg-green-500 text-white py-2 px-6 rounded-md">
           Contact Us
         </button>
+      </section>
+
+      {/* Formulario Request Callback */}
+      <section className="py-12 px-4">
+        <RequestCallback />
       </section>
     </div>
   );
