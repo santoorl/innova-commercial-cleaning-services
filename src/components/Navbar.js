@@ -1,48 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>
-        <Link to="/" style={styles.link}>Innova Cleaning</Link>
+    <nav className="bg-gray-800 shadow-lg">
+      <div className="container mx-auto px-4 flex justify-between items-center h-16">
+        <Link to="/" className="text-white text-2xl font-bold">
+          Innova Cleaning
+        </Link>
+        <button
+          className="text-white md:hidden focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          ☰
+        </button>
+        <ul
+          className={`${
+            isOpen ? 'block' : 'hidden'
+          } md:flex md:items-center absolute md:static left-0 top-16 w-full md:w-auto bg-gray-800 md:bg-transparent z-10`}
+        >
+          <li>
+            <Link
+              to="/"
+              className="block py-2 px-4 text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/services"
+              className="block py-2 px-4 text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/reviews"
+              className="block py-2 px-4 text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Reviews
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className="block py-2 px-4 text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              className="block py-2 px-4 text-gray-300 hover:text-white"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
       </div>
-      <ul style={styles.navLinks}>
-        <li><Link to="/" style={styles.link}>Home</Link></li>
-        <li><Link to="/services" style={styles.link}>Services</Link></li>
-        <li><Link to="/reviews" style={styles.link}>Reviews</Link></li>
-        <li><Link to="/about" style={styles.link}>About</Link></li>
-        <li><Link to="/contact" style={styles.link}>Contact</Link></li>
-      </ul>
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#2c3e50',
-    padding: '10px 20px',
-  },
-  logo: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#ecf0f1',
-  },
-  navLinks: {
-    listStyle: 'none',
-    display: 'flex',
-    gap: '15px',
-    margin: 0,
-    padding: 0,
-  },
-  link: {
-    textDecoration: 'none',
-    color: '#ecf0f1',
-    fontSize: '18px',
-  },
 };
 
 export default Navbar;
