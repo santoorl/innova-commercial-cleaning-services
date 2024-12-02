@@ -27,23 +27,59 @@ const Reviews = () => {
 
       {/* Lista de Reseñas */}
       <div className="mb-12">
-        {reviews.length > 0 ? (
-          reviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-md rounded-md p-4 mb-4"
-            >
-              <h3 className="text-xl font-bold text-gray-800">{review.name}</h3>
-              <p className="text-gray-600">{review.comment}</p>
-              <div className="text-yellow-500">
-                {'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-gray-600">No reviews yet. Be the first to leave one!</p>
-        )}
+  {reviews.length > 0 ? (
+    reviews.map((review, index) => (
+      <div
+        key={index}
+        className="bg-white shadow-md rounded-md p-6 mb-4 flex items-start gap-4"
+      >
+        <div>
+          <img
+            src={`https://via.placeholder.com/100x100?text=${review.name[0]}`}
+            alt={review.name}
+            className="rounded-full w-16 h-16 shadow-md"
+          />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-gray-800">{review.name}</h3>
+          <p className="text-gray-600 mt-2">{review.comment}</p>
+          <div className="text-yellow-500 mt-2 flex">
+            {Array.from({ length: review.rating }, (_, i) => (
+              <span key={i}>★</span>
+            ))}
+            {Array.from({ length: 5 - review.rating }, (_, i) => (
+              <span key={i} className="text-gray-300">★</span>
+            ))}
+          </div>
+        </div>
       </div>
+    ))
+  ) : (
+    <p className="text-gray-600">No reviews yet. Be the first to leave one!</p>
+  )}
+</div>
+<section className="mt-12">
+  <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Work</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <img
+      src="/images/post-cleaning1.jpg"
+      alt="Post Cleaning 1"
+      className="rounded-md shadow-md"
+    />
+    <img
+      src="/images/post-cleaning2.jpg"
+      alt="Post Cleaning 2"
+      className="rounded-md shadow-md"
+    />
+    <img
+      src="/images/post-cleaning3.jpg"
+      alt="Post Cleaning 3"
+      className="rounded-md shadow-md"
+    />
+    {/* Añade más imágenes según sea necesario */}
+  </div>
+</section>
+
 
       {/* Formulario de Nueva Reseña */}
       <div className="bg-white shadow-md rounded-md p-6">

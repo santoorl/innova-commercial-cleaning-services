@@ -1,63 +1,105 @@
 import React from 'react';
-import RequestCallback from '../components/RequestCallback';
 
 const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Introducción */}
-      <header className="bg-gray-800 text-white py-12 text-center">
-        <h1 className="text-4xl font-bold">Welcome to Innova Commercial Cleaning Services</h1>
-        <p className="text-lg mt-4">
-          We provide top-notch cleaning services for your business needs.
-        </p>
-      </header>
+      <header className="relative bg-gray-800 text-white py-20 px-4 text-center">
+  <div className="absolute inset-0">
+    <img
+      src="/images/gallery/post10.jpeg"
+      alt="Post Cleaning Highlight"
+      className="object-cover w-full h-full opacity-60"
+    />
+  </div>
+  <div className="relative z-10">
+    <h1 className="text-5xl font-bold">Innova Commercial Cleaning Services</h1>
+    <p className="mt-4 text-lg">
+      Professional cleaning solutions tailored to your needs.
+    </p>
+  </div>
+</header>
+
 
       {/* Servicios Destacados */}
       <section className="py-12 px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white shadow-md rounded-md p-6">
-            <h3 className="text-xl font-semibold">Office Cleaning</h3>
-            <p className="mt-2 text-gray-600">Professional cleaning for office spaces.</p>
-          </div>
-          <div className="bg-white shadow-md rounded-md p-6">
-            <h3 className="text-xl font-semibold">Retail Cleaning</h3>
-            <p className="mt-2 text-gray-600">Keep your retail space spotless and welcoming.</p>
-          </div>
-          <div className="bg-white shadow-md rounded-md p-6">
-            <h3 className="text-xl font-semibold">Post-Construction Cleaning</h3>
-            <p className="mt-2 text-gray-600">Clean up after construction projects.</p>
-          </div>
-        </div>
-      </section>
+  <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Our Services</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="bg-white shadow-md rounded-md p-6">
+      <img
+        src="/images/services/services3.jpeg"
+        alt="Office Cleaning"
+        className="w-full h-40 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-xl font-semibold">Office Cleaning</h3>
+      <p className="mt-2 text-gray-600">Keep your office spaces spotless and professional.</p>
+    </div>
+    <div className="bg-white shadow-md rounded-md p-6">
+      <img
+        src="/images/gallery/post4.jpeg"
+        alt="Retail Cleaning"
+        className="w-full h-40 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-xl font-semibold">Retail Cleaning</h3>
+      <p className="mt-2 text-gray-600">Clean, fresh, and welcoming retail environments.</p>
+    </div>
+    <div className="bg-white shadow-md rounded-md p-6">
+      <img
+        src="/images/gallery/post11.jpeg"
+        alt="Post-Construction Cleaning"
+        className="w-full h-40 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-xl font-semibold">Post-Construction Cleaning</h3>
+      <p className="mt-2 text-gray-600">Thorough cleaning after construction projects.</p>
+    </div>
+  </div>
+</section>
 
-      {/* Promoción */}
-      <section className="bg-yellow-500 text-white py-8 text-center">
-        <h2 className="text-3xl font-bold">Special Offer</h2>
-        <p className="text-lg mt-4">Get 20% off your first cleaning service!</p>
-      </section>
 
-      {/* Horarios */}
-      <section className="py-8 px-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-800">Business Hours</h2>
-        <p className="mt-2 text-gray-600">Monday to Friday: 9:00 AM - 6:00 PM</p>
-        <p className="mt-2 text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-      </section>
+      {/* Mini Galería */}
+      <section className="py-12 px-4 text-center">
+  <h2 className="text-3xl font-bold text-gray-800 mb-8">Our Recent Work</h2>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img
+      src="/images/gallery/post1.jpeg"
+      alt="Gallery 1"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+    <img
+      src="/images/gallery/post2.jpeg"
+      alt="Gallery 2"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+    <img
+      src="/images/gallery/post3.jpeg"
+      alt="Gallery 3"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+    <img
+      src="/images/gallery/post4.jpeg"
+      alt="Gallery 4"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+    <img
+      src="/images/gallery/post12.jpeg"
+      alt="Gallery 5"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+    <img
+      src="/images/gallery/post6.jpeg"
+      alt="Gallery 6"
+      className="w-full h-40 object-cover rounded-md shadow-md"
+    />
+  </div>
+  <a
+    href="/gallery"
+    className="mt-8 inline-block bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600"
+  >
+    View More
+  </a>
+</section>
 
-      {/* Botones de Acceso Rápido */}
-      <section className="py-8 px-4 text-center">
-        <button className="bg-blue-500 text-white py-2 px-6 rounded-md mr-4">
-          Request Callback
-        </button>
-        <button className="bg-green-500 text-white py-2 px-6 rounded-md">
-          Contact Us
-        </button>
-      </section>
 
-      {/* Formulario Request Callback */}
-      <section className="py-12 px-4">
-        <RequestCallback />
-      </section>
     </div>
   );
 };
