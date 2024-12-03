@@ -4,21 +4,22 @@ const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Introducción */}
-      <header className="relative bg-gray-800 text-white py-20 px-4 text-center">
+      <header className="relative bg-gray-800 text-white py-20 px-4 text-center animate-fade-in">
   <div className="absolute inset-0">
     <img
-      src="/images/gallery/post10.jpeg"
+      src="/images/gallery/fondo1.jpeg"
       alt="Post Cleaning Highlight"
       className="object-cover w-full h-full opacity-60"
     />
   </div>
   <div className="relative z-10">
-    <h1 className="text-5xl font-bold">Innova Commercial Cleaning Services</h1>
-    <p className="mt-4 text-lg">
+  <h1 className="text-5xl font-bold text-white drop-shadow-md font-sans animate-slide-fade-in delay-200">Innova Commercial Cleaning Services</h1>
+  <p className="mt-4 text-lg text-gray-300 tracking-wide font-sans animate-slide-fade-in delay-500">
       Professional cleaning solutions tailored to your needs.
     </p>
   </div>
 </header>
+
 
 
       {/* Servicios Destacados */}
@@ -29,7 +30,7 @@ const Home = () => {
       <img
         src="/images/services/services3.jpeg"
         alt="Office Cleaning"
-        className="w-full h-40 object-cover rounded-md mb-4"
+        className="w-full h-40 object-cover rounded-md mb-4 shadow-md hover:scale-105 transition-transform duration-300"
       />
       <h3 className="text-xl font-semibold">Office Cleaning</h3>
       <p className="mt-2 text-gray-600">Keep your office spaces spotless and professional.</p>
@@ -38,7 +39,7 @@ const Home = () => {
       <img
         src="/images/gallery/post4.jpeg"
         alt="Retail Cleaning"
-        className="w-full h-40 object-cover rounded-md mb-4"
+        className="w-full h-40 object-cover rounded-md mb-4 shadow-md hover:scale-105 transition-transform duration-300"
       />
       <h3 className="text-xl font-semibold">Retail Cleaning</h3>
       <p className="mt-2 text-gray-600">Clean, fresh, and welcoming retail environments.</p>
@@ -47,7 +48,7 @@ const Home = () => {
       <img
         src="/images/gallery/post11.jpeg"
         alt="Post-Construction Cleaning"
-        className="w-full h-40 object-cover rounded-md mb-4"
+        className="w-full h-40 object-cover rounded-md mb-4 shadow-md hover:scale-105 transition-transform duration-300"
       />
       <h3 className="text-xl font-semibold">Post-Construction Cleaning</h3>
       <p className="mt-2 text-gray-600">Thorough cleaning after construction projects.</p>
@@ -63,32 +64,32 @@ const Home = () => {
     <img
       src="/images/gallery/post1.jpeg"
       alt="Gallery 1"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
     <img
       src="/images/gallery/post2.jpeg"
       alt="Gallery 2"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
     <img
       src="/images/gallery/post3.jpeg"
       alt="Gallery 3"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
     <img
       src="/images/gallery/post4.jpeg"
       alt="Gallery 4"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
     <img
       src="/images/gallery/post12.jpeg"
       alt="Gallery 5"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
     <img
       src="/images/gallery/post6.jpeg"
       alt="Gallery 6"
-      className="w-full h-40 object-cover rounded-md shadow-md"
+      className="w-full h-40 object-cover rounded-md shadow-md animate-fade-in hover:scale-105 transition-transform duration-300"
     />
   </div>
   <a
