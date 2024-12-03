@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -8,11 +8,13 @@ import Contact from './pages/Contact';
 import Reviews from './pages/Reviews';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <Router>
-      <Navbar />
+      <Navbar onMenuToggle={setIsMenuOpen} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isMenuOpen={isMenuOpen} />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

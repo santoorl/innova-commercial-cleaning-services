@@ -1,22 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ onMenuToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    const newMenuState = !isOpen;
+    setIsOpen(newMenuState);
+    if (onMenuToggle) {
+      onMenuToggle(newMenuState); // Notifica al componente padre
+    }
+  };
 
   return (
     <nav className="bg-gray-800 shadow-lg">
-      <div className="container mx-auto px-4 flex justify-between items-center h-16">
-        <Link to="/" className="text-white text-2xl font-bold">
-          Innova Cleaning
+      <div className="container mx-auto px-4 flex justify-between items-center h-16 relative">
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <img
+            src="/images/logo.png"
+            alt="Innova Cleaning Logo"
+            className="h-8 w-auto md:h-10"
+          />
+          <span className="ml-2 text-white text-lg md:text-xl font-bold">
+            Innova Cleaning
+          </span>
         </Link>
+
+        {/* Botón de Menú Hamburger */}
         <button
           className="text-white md:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleMenuToggle}
           aria-label="Toggle Menu"
         >
           ☰
         </button>
+
+        {/* Menú */}
         <ul
           className={`${
             isOpen ? 'block' : 'hidden'
@@ -26,7 +46,7 @@ const Navbar = () => {
             <Link
               to="/"
               className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMenuToggle}
             >
               Home
             </Link>
@@ -35,7 +55,7 @@ const Navbar = () => {
             <Link
               to="/services"
               className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMenuToggle}
             >
               Services
             </Link>
@@ -44,7 +64,7 @@ const Navbar = () => {
             <Link
               to="/reviews"
               className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMenuToggle}
             >
               Reviews
             </Link>
@@ -53,7 +73,7 @@ const Navbar = () => {
             <Link
               to="/about"
               className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMenuToggle}
             >
               About
             </Link>
@@ -62,7 +82,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={() => setIsOpen(false)}
+              onClick={handleMenuToggle}
             >
               Contact
             </Link>
