@@ -13,7 +13,7 @@ const Navbar = ({ onMenuToggle }) => {
   };
 
   return (
-    <nav className="bg-gray-800 shadow-lg">
+    <nav className="bg-gray-800 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 flex justify-between items-center h-16 relative">
         {/* Logo */}
         <Link to="/" className="flex items-center">
