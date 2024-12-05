@@ -15,31 +15,31 @@ const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Header */}
-      <header className="relative bg-gray-800 text-white px-4 text-center">
+      <header className="relative bg-gray-800 text-white px-4 text-center h-[70vh] flex flex-col justify-center items-center">
         <div className="absolute inset-0">
           <img
             src="/images/gallery/fondo1.jpeg"
             alt="Post Cleaning Highlight"
-            className="object-cover w-full h-full opacity-70"
+            className="object-cover w-full h-full opacity-80"
           />
         </div>
         <div className="relative z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg font-serif animate-slide-fade-in">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-wide">
             Innova Commercial Cleaning Services
           </h1>
-          <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 tracking-wide font-sans animate-fade-in delay-500">
+          <p className="mt-4 text-lg sm:text-xl text-gray-300">
             Professional cleaning solutions tailored to your needs.
           </p>
           <div className="mt-6 flex justify-center space-x-4">
             <a
               href="#services"
-              className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-500 text-white rounded-md text-sm sm:text-lg font-medium hover:bg-blue-600 transition-colors duration-300"
+              className="px-6 py-3 bg-blue-500 text-white rounded-md text-lg font-medium hover:bg-blue-600 transition duration-300"
             >
               Explore Services
             </a>
             <a
               href="#contact"
-              className="px-4 sm:px-6 py-2 sm:py-3 bg-green-500 text-white rounded-md text-sm sm:text-lg font-medium hover:bg-green-600 transition-colors duration-300"
+              className="px-6 py-3 bg-green-500 text-white rounded-md text-lg font-medium hover:bg-green-600 transition duration-300"
             >
               Contact Us
             </a>
@@ -49,7 +49,9 @@ const Home = () => {
 
       {/* Servicios Destacados */}
       <section id="services" className="py-12 px-4 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Our Services</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          Our Services
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Servicio 1 */}
           <div className="bg-white shadow-md rounded-md p-6 transition-transform hover:scale-105 hover:shadow-lg">
@@ -58,7 +60,9 @@ const Home = () => {
               alt="Office Cleaning"
               className="w-full h-40 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">Office Cleaning</h3>
+            <h3 className="text-xl font-semibold text-gray-800">
+              Office Cleaning
+            </h3>
             <p className="mt-2 text-gray-600">
               Keep your office spaces spotless and professional.
             </p>
@@ -70,7 +74,9 @@ const Home = () => {
               alt="Retail Cleaning"
               className="w-full h-40 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">Retail Cleaning</h3>
+            <h3 className="text-xl font-semibold text-gray-800">
+              Retail Cleaning
+            </h3>
             <p className="mt-2 text-gray-600">
               Clean, fresh, and welcoming retail environments.
             </p>
@@ -82,7 +88,9 @@ const Home = () => {
               alt="Post-Construction Cleaning"
               className="w-full h-40 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">Post-Construction Cleaning</h3>
+            <h3 className="text-xl font-semibold text-gray-800">
+              Post-Construction Cleaning
+            </h3>
             <p className="mt-2 text-gray-600">
               Thorough cleaning after construction projects.
             </p>

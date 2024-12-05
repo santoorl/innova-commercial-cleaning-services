@@ -1,93 +1,73 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar = ({ onMenuToggle }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const handleMenuToggle = () => {
-    const newMenuState = !isOpen;
-    setIsOpen(newMenuState);
-    if (onMenuToggle) {
-      onMenuToggle(newMenuState); // Notifica al componente padre
-    }
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="bg-gray-800 shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex justify-between items-center h-16 relative">
+    <nav className="bg-white shadow-lg fixed w-full z-50 top-0 left-0">
+      <div className="container mx-auto flex justify-between items-center px-4 py-3">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link
+          to="/"
+          className="flex items-center"
+          onClick={() => setIsOpen(false)}
+        >
           <img
             src="/images/logo.png"
             alt="Innova Cleaning Logo"
-            className="h-8 w-auto md:h-10"
+            className="h-10 w-auto"
           />
-          <span className="ml-2 text-white text-lg md:text-xl font-bold">
+          <span className="ml-3 text-gray-800 text-xl font-bold tracking-wide">
             Innova Cleaning
           </span>
         </Link>
 
-        {/* Botón de Menú Hamburger */}
+        {/* Hamburger Button */}
         <button
-          className="text-white md:hidden focus:outline-none"
-          onClick={handleMenuToggle}
+          onClick={toggleMenu}
+          className="text-gray-800 md:hidden focus:outline-none"
           aria-label="Toggle Menu"
         >
-          ☰
+          {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
-        {/* Menú */}
-        <ul
-          className={`${
-            isOpen ? 'block' : 'hidden'
-          } md:flex md:items-center absolute md:static left-0 top-16 w-full md:w-auto bg-gray-800 md:bg-transparent z-10`}
+        {/* Menu */}
+        <div
+          className={`fixed inset-0 bg-gray-800 bg-opacity-90 transform ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:bg-transparent md:flex md:items-center md:space-x-8`}
         >
-          <li>
-            <Link
-              to="/"
-              className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={handleMenuToggle}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/services"
-              className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={handleMenuToggle}
-            >
-              Services
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/reviews"
-              className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={handleMenuToggle}
-            >
-              Reviews
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={handleMenuToggle}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="block py-2 px-4 text-gray-300 hover:text-white"
-              onClick={handleMenuToggle}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
+          <ul className="flex flex-col md:flex-row justify-center items-center h-full md:h-auto space-y-6 md:space-y-0">
+            {[
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+              { name: "Reviews", path: "/reviews" },
+              { name: "About", path: "/about" },
+              { name: "Contact", path: "/contact" },
+            ].map((item, index) => (
+              <li key={index} className="text-center">
+                <Link
+                  to={item.path}
+                  className={`block text-lg font-semibold transition-colors duration-300 ${
+                    location.pathname === item.path
+                      ? "text-white underline"
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );

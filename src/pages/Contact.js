@@ -13,83 +13,116 @@ const Contact = () => {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
     setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000); // Resetea el mensaje después de 3 segundos
   };
 
   return (
-    <div className="bg-gray-100 py-12 px-4">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Contact Us</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Formulario */}
-        <div className="bg-white shadow-md rounded-md p-6">
-          {submitted ? (
-            <p className="text-green-500 font-semibold">Thank you for your message! We'll get back to you soon.</p>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded-md"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
-              >
-                Submit
-              </button>
-            </form>
-          )}
+    <div className="bg-gray-100">
+      {/* Header */}
+      <header className="relative bg-gray-800 text-white py-20 text-center">
+        <div className="absolute inset-0">
+          <img
+            src="/images/gallery/fondo1.jpeg" // Asegúrate de tener esta imagen en tu proyecto
+            alt="Contact Us Background"
+            className="object-cover w-full h-full opacity-60"
+          />
         </div>
+        <div className="relative z-10">
+          <h1 className="text-4xl font-bold drop-shadow-lg">Contact Us</h1>
+          <p className="mt-4 text-lg text-gray-200">
+            We're here to help. Reach out to us today!
+          </p>
+        </div>
+      </header>
 
-        {/* Mapa */}
-        <div className="bg-white shadow-md rounded-md p-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Location</h2>
-          <iframe
-            title="Google Maps Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093683!2d-122.41941608468123!3d37.7749297797595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c24fefb0d%3A0xfb77d52753d0cbba!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1639342127592!5m2!1sen!2sus"
-            width="100%"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+      {/* Contact Form and Map */}
+      <div className="py-12 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Form */}
+          <div className="bg-white shadow-lg rounded-md p-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Get in Touch</h2>
+            {submitted ? (
+              <p className="text-green-500 font-semibold">Thank you for your message! We'll get back to you soon.</p>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded-md"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Map */}
+          <div className="bg-white shadow-lg rounded-md p-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Location</h2>
+            <iframe
+              title="Google Maps Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193736.0720636108!2d-74.25159074214737!3d40.5795314745287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c244c2a3b4998d%3A0xe6dbefce29e8335e!2sStaten%20Island%2C%20NY!5e0!3m2!1sen!2sus!4v1685629273848!5m2!1sen!2sus"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12 px-4">
+        <div className="max-w-screen-lg mx-auto text-center">
+          <h3 className="text-lg font-bold">Innova Commercial Cleaning Services</h3>
+          <p className="mt-4">Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
+          <div className="mt-6 flex justify-center space-x-4">
+            <button className="bg-green-500 px-4 py-2 rounded-md">Call or Text</button>
+            <button className="bg-blue-500 px-4 py-2 rounded-md">Send Message</button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

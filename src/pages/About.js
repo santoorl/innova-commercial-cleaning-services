@@ -19,14 +19,14 @@ const About = () => {
         {/* Historia */}
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             <p className="text-gray-600 leading-relaxed">
               Innova Commercial Cleaning Services was founded with a mission to deliver exceptional cleaning
               solutions for businesses. From humble beginnings, we have grown into a trusted name in the
               industry, known for our commitment to quality and customer satisfaction.
             </p>
             <img
-              src="https://via.placeholder.com/500x300"
+              src="/images/services/test1.jpg" // Reemplaza con una imagen válida
               alt="Our Story"
               className="rounded-md shadow-md"
             />
@@ -36,50 +36,71 @@ const About = () => {
         {/* Misión y Visión */}
         <section className="mb-12 bg-gray-200 p-8 rounded-md shadow-md">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Mission & Vision</h2>
-          <p className="text-gray-600 leading-relaxed">
-            <strong>Our Mission:</strong> To provide top-tier cleaning services that exceed our clients’ expectations, 
-            creating clean, safe, and productive environments for businesses.
-          </p>
-          <p className="text-gray-600 leading-relaxed mt-4">
-            <strong>Our Vision:</strong> To be the go-to commercial cleaning provider recognized for innovation, 
-            reliability, and exceptional service.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <p className="text-gray-600 leading-relaxed">
+                <strong>Our Mission:</strong> To provide top-tier cleaning services that exceed our clients’ expectations, 
+                creating clean, safe, and productive environments for businesses.
+              </p>
+              <p className="text-gray-600 leading-relaxed mt-4">
+                <strong>Our Vision:</strong> To be the go-to commercial cleaning provider recognized for innovation, 
+                reliability, and exceptional service.
+              </p>
+            </div>
+            <img
+              src="/images/services/test2.jpg" // Reemplaza con una imagen válida
+              alt="Mission & Vision"
+              className="rounded-md shadow-md"
+            />
+          </div>
         </section>
 
         {/* Equipo */}
         <section>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold">Erick Valenzuela</h3>
-              <p className="text-gray-600">Founder & CEO</p>
-            </div>
-            <div className="text-center">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold">Erick valenzuela</h3>
-              <p className="text-gray-600">Operations Manager</p>
-            </div>
-            <div className="text-center">
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Team Member"
-                className="rounded-full mx-auto mb-4"
-              />
-              <h3 className="text-xl font-bold">Justin Valenzuela</h3>
-              <p className="text-gray-600">Client Relations</p>
-            </div>
+            {[
+              {
+                name: "Erick Valenzuela",
+                role: "Founder & CEO",
+                image: "/images/team/erick.jpg", // Reemplaza con una imagen válida
+              },
+              {
+                name: "Justin Valenzuela",
+                role: "Operations Manager",
+                image: "/images/team/justin.jpg", // Reemplaza con una imagen válida
+              },
+              {
+                name: "Maria Rodriguez",
+                role: "Client Relations",
+                image: "/images/team/maria.jpg", // Reemplaza con una imagen válida
+              },
+            ].map((member, index) => (
+              <div key={index} className="text-center">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="rounded-full mx-auto mb-4 h-40 w-40 object-cover shadow-md"
+                />
+                <h3 className="text-xl font-bold">{member.name}</h3>
+                <p className="text-gray-600">{member.role}</p>
+              </div>
+            ))}
           </div>
         </section>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12 px-4">
+        <div className="max-w-screen-lg mx-auto text-center">
+          <h3 className="text-lg font-bold">Innova Commercial Cleaning Services</h3>
+          <p className="mt-4">Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
+          <div className="mt-6 flex justify-center space-x-4">
+            <button className="bg-green-500 px-4 py-2 rounded-md">Call or Text</button>
+            <button className="bg-blue-500 px-4 py-2 rounded-md">Send Message</button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
