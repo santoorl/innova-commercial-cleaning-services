@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
     <div className="bg-gray-100">
       {/* Encabezado */}
       <header className="relative bg-gray-800 text-white py-20 px-4 text-center">
-        <div className="absolute inset-0 bg-gray-800 opacity-70"></div>
+        <div className="absolute inset-0">
+          <img
+            src="/images/gallery/fondo1.jpeg" // Usa la misma imagen que las otras páginas
+            alt="About Us Background"
+            className="object-cover w-full h-full opacity-60"
+          />
+        </div>
         <div className="relative z-10">
           <h1 className="text-5xl font-bold">About Us</h1>
           <p className="mt-4 text-lg">
@@ -26,7 +32,7 @@ const About = () => {
               industry, known for our commitment to quality and customer satisfaction.
             </p>
             <img
-              src="/images/services/test1.jpg" // Reemplaza con una imagen válida
+              src="/images/services/test1.jpg"
               alt="Our Story"
               className="rounded-md shadow-md"
             />
@@ -48,7 +54,7 @@ const About = () => {
               </p>
             </div>
             <img
-              src="/images/services/test2.jpg" // Reemplaza con una imagen válida
+              src="/images/services/test2.jpg"
               alt="Mission & Vision"
               className="rounded-md shadow-md"
             />
@@ -59,23 +65,21 @@ const About = () => {
         <section>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Erick Valenzuela",
-                role: "Founder & CEO",
-                image: "/images/team/erick.jpg", // Reemplaza con una imagen válida
-              },
-              {
-                name: "Justin Valenzuela",
-                role: "Operations Manager",
-                image: "/images/team/justin.jpg", // Reemplaza con una imagen válida
-              },
-              {
-                name: "Maria Rodriguez",
-                role: "Client Relations",
-                image: "/images/team/maria.jpg", // Reemplaza con una imagen válida
-              },
-            ].map((member, index) => (
+            {[{
+              name: "Erick Valenzuela",
+              role: "Founder & CEO",
+              image: "/images/team/erick.jpg", // Reemplaza con una imagen válida
+            },
+            {
+              name: "Justin Valenzuela",
+              role: "Operations Manager",
+              image: "/images/team/justin.jpg", // Reemplaza con una imagen válida
+            },
+            {
+              name: "Maria Rodriguez",
+              role: "Client Relations",
+              image: "/images/team/maria.jpg", // Reemplaza con una imagen válida
+            }].map((member, index) => (
               <div key={index} className="text-center">
                 <img
                   src={member.image}

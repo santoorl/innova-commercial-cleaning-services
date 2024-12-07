@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50 top-0 left-0">
-      <div className="container mx-auto flex justify-between items-center px-4 py-3">
+    <nav
+      className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${
+        scrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <Link
           to="/"
@@ -20,11 +34,11 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
         >
           <img
-            src="/images/logo.png"
+            src="/images/services/logo.png"
             alt="Innova Cleaning Logo"
             className="h-10 w-auto"
           />
-          <span className="ml-3 text-gray-800 text-xl font-bold tracking-wide">
+          <span className="ml-3 text-gray-900 text-2xl font-bold tracking-wide">
             Innova Cleaning
           </span>
         </Link>
@@ -32,7 +46,7 @@ const Navbar = () => {
         {/* Hamburger Button */}
         <button
           onClick={toggleMenu}
-          className="text-gray-800 md:hidden focus:outline-none"
+          className="text-gray-900 md:hidden focus:outline-none"
           aria-label="Toggle Menu"
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -42,9 +56,9 @@ const Navbar = () => {
         <div
           className={`fixed inset-0 bg-gray-800 bg-opacity-90 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:bg-transparent md:flex md:items-center md:space-x-8`}
+          } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:bg-transparent`}
         >
-          <ul className="flex flex-col md:flex-row justify-center items-center h-full md:h-auto space-y-6 md:space-y-0">
+          <ul className="flex flex-col md:flex-row justify-center items-center h-full md:h-auto space-y-6 md:space-y-0 md:space-x-6">
             {[
               { name: "Home", path: "/" },
               { name: "Services", path: "/services" },
