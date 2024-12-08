@@ -13,22 +13,22 @@ const Contact = () => {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000); // Resetea el mensaje después de 3 segundos
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
     <div className="bg-gray-100">
       {/* Header */}
-      <header className="relative bg-gray-800 text-white py-20 text-center">
+      <header className="relative bg-gray-800 text-white text-center h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
-            src="/images/gallery/fondo1.jpeg" // Asegúrate de tener esta imagen en tu proyecto
+            src="/images/gallery/fondo1.jpeg"
             alt="Contact Us Background"
             className="object-cover w-full h-full opacity-60"
           />
         </div>
         <div className="relative z-10">
-          <h1 className="text-4xl font-bold drop-shadow-lg">Contact Us</h1>
+          <h1 className="text-5xl font-bold">Contact Us</h1>
           <p className="mt-4 text-lg text-gray-200">
             We're here to help. Reach out to us today!
           </p>
@@ -42,7 +42,9 @@ const Contact = () => {
           <div className="bg-white shadow-lg rounded-md p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Get in Touch</h2>
             {submitted ? (
-              <p className="text-green-500 font-semibold">Thank you for your message! We'll get back to you soon.</p>
+              <p className="text-green-500 font-semibold">
+                Thank you for your message! We'll get back to you soon.
+              </p>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -55,7 +57,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-md"
+                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -69,7 +71,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-md"
+                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -82,13 +84,13 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-md"
+                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 w-full"
                 >
                   Submit
                 </button>
@@ -116,10 +118,16 @@ const Contact = () => {
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-screen-lg mx-auto text-center">
           <h3 className="text-lg font-bold">Innova Commercial Cleaning Services</h3>
-          <p className="mt-4">Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
+          <p className="mt-4">
+            Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM
+          </p>
           <div className="mt-6 flex justify-center space-x-4">
-            <button className="bg-green-500 px-4 py-2 rounded-md">Call or Text</button>
-            <button className="bg-blue-500 px-4 py-2 rounded-md">Send Message</button>
+            <button className="bg-green-500 px-4 py-2 rounded-md">
+              Call or Text
+            </button>
+            <button className="bg-blue-500 px-4 py-2 rounded-md">
+              Send Message
+            </button>
           </div>
         </div>
       </footer>

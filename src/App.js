@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Reviews from './pages/Reviews';
+import './index.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,13 +14,16 @@ function App() {
   return (
     <Router>
       <Navbar onMenuToggle={setIsMenuOpen} />
-      <Routes>
-        <Route path="/" element={<Home isMenuOpen={isMenuOpen} />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/reviews" element={<Reviews />} />
-      </Routes>
+      {/* Contenedor principal con margen para evitar superposición */}
+      <div className="pt-20">
+        <Routes>
+          <Route path="/" element={<Home isMenuOpen={isMenuOpen} />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/reviews" element={<Reviews />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

@@ -29,7 +29,6 @@ const Reviews = () => {
   const [formData, setFormData] = useState({ comment: "", rating: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  // Manejar autenticación
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -75,7 +74,7 @@ const Reviews = () => {
   return (
     <div className="bg-gray-100">
       {/* Header */}
-      <header className="relative bg-gray-800 text-white py-20 text-center">
+      <header className="relative bg-gray-800 text-white text-center h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
             src="/images/gallery/fondo1.jpeg"
@@ -84,7 +83,7 @@ const Reviews = () => {
           />
         </div>
         <div className="relative z-10">
-          <h1 className="text-4xl font-bold drop-shadow-lg">Customer Reviews</h1>
+          <h1 className="text-5xl font-bold drop-shadow-lg">Customer Reviews</h1>
           <p className="mt-4 text-lg text-gray-200">
             Share your experience with us and read what others have to say.
           </p>
@@ -117,7 +116,9 @@ const Reviews = () => {
 
       {/* Reviews */}
       <section className="py-12 px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">What They Say</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          What They Say
+        </h2>
         <div className="mb-12">
           {reviews.length > 0 ? (
             reviews.map((review, index) => (
@@ -133,7 +134,9 @@ const Reviews = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800">{review.name}</h3>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {review.name}
+                  </h3>
                   <p className="text-gray-600 mt-2">{review.comment}</p>
                   <div className="text-yellow-500 mt-2 flex">
                     {Array.from({ length: review.rating }, (_, i) => (
@@ -149,7 +152,9 @@ const Reviews = () => {
               </div>
             ))
           ) : (
-            <p className="text-gray-600 text-center">No reviews yet. Be the first to leave one!</p>
+            <p className="text-gray-600 text-center">
+              No reviews yet. Be the first to leave one!
+            </p>
           )}
         </div>
       </section>
@@ -158,13 +163,20 @@ const Reviews = () => {
       {user && (
         <section className="py-12 px-4">
           <div className="bg-white shadow-md rounded-md p-6 max-w-lg mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Leave a Review</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Leave a Review
+            </h2>
             {submitted ? (
-              <p className="text-green-500 font-semibold">Thank you for your review!</p>
+              <p className="text-green-500 font-semibold">
+                Thank you for your review!
+              </p>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-2" htmlFor="comment">
+                  <label
+                    className="block text-gray-700 font-medium mb-2"
+                    htmlFor="comment"
+                  >
                     Comment
                   </label>
                   <textarea
@@ -177,7 +189,10 @@ const Reviews = () => {
                   ></textarea>
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-2" htmlFor="rating">
+                  <label
+                    className="block text-gray-700 font-medium mb-2"
+                    htmlFor="rating"
+                  >
                     Rating (1-5)
                   </label>
                   <input
@@ -207,11 +222,19 @@ const Reviews = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-screen-lg mx-auto text-center">
-          <h3 className="text-lg font-bold">Innova Commercial Cleaning Services</h3>
-          <p className="mt-4">Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
+          <h3 className="text-lg font-bold">
+            Innova Commercial Cleaning Services
+          </h3>
+          <p className="mt-4">
+            Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM
+          </p>
           <div className="mt-6 flex justify-center space-x-4">
-            <button className="bg-green-500 px-4 py-2 rounded-md">Call or Text</button>
-            <button className="bg-blue-500 px-4 py-2 rounded-md">Send Message</button>
+            <button className="bg-green-500 px-4 py-2 rounded-md">
+              Call or Text
+            </button>
+            <button className="bg-blue-500 px-4 py-2 rounded-md">
+              Send Message
+            </button>
           </div>
         </div>
       </footer>

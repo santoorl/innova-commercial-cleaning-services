@@ -15,37 +15,40 @@ const Home = () => {
   return (
     <div className="bg-gray-100">
       {/* Header */}
-      <header className="relative bg-gray-800 text-white px-4 text-center h-[70vh] flex flex-col justify-center items-center">
-        <div className="absolute inset-0">
-          <img
-            src="/images/gallery/fondo1.jpeg"
-            alt="Post Cleaning Highlight"
-            className="object-cover w-full h-full opacity-80"
-          />
-        </div>
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-wide">
-            Innova Commercial Cleaning Services
-          </h1>
-          <p className="mt-4 text-lg sm:text-xl text-gray-300">
-            Professional cleaning solutions tailored to your needs.
-          </p>
-          <div className="mt-6 flex justify-center space-x-4">
-            <a
-              href="#services"
-              className="px-6 py-3 bg-blue-500 text-white rounded-md text-lg font-medium hover:bg-blue-600 transition duration-300"
-            >
-              Explore Services
-            </a>
-            <a
-              href="#contact"
-              className="px-6 py-3 bg-green-500 text-white rounded-md text-lg font-medium hover:bg-green-600 transition duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
-      </header>
+      <header className="relative bg-gray-800 text-white px-4 text-center h-[80vh] flex flex-col justify-center items-center pt-24">
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  {/* Background Image */}
+  <img
+    src="/images/gallery/fondo1.jpeg"
+    alt="Post Cleaning Highlight"
+    className="absolute inset-0 object-cover w-full h-full"
+  />
+  {/* Content */}
+  <div className="relative z-10">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight drop-shadow-md">
+      Innova Commercial Cleaning Services
+    </h1>
+    <p className="mt-4 text-lg sm:text-xl text-gray-200">
+      Professional cleaning solutions tailored to your needs.
+    </p>
+    <div className="mt-6 flex justify-center space-x-4">
+      <a
+        href="#services"
+        className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-md text-lg font-semibold hover:from-blue-600 hover:to-blue-700 shadow-lg transition-transform transform hover:scale-105"
+      >
+        Explore Services
+      </a>
+      <a
+        href="#contact"
+        className="px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-md text-lg font-semibold hover:from-green-600 hover:to-green-700 shadow-lg transition-transform transform hover:scale-105"
+      >
+        Contact Us
+      </a>
+    </div>
+  </div>
+</header>
+
 
       {/* Servicios Destacados */}
       <section id="services" className="py-12 px-4 bg-gray-100">

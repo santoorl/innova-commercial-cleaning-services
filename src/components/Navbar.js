@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ onMenuToggle }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    onMenuToggle(!isOpen); // Notifica al componente principal
   };
 
   const handleScroll = () => {
-    setScrolled(window.scrollY > 50);
+    setScrolled(window.scrollY > 0);
   };
 
   useEffect(() => {
@@ -23,42 +24,67 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 top-0 left-0 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-lg" : "bg-transparent"
+        scrolled ? "bg-white shadow-lg" : "bg-gray-800"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-6 py-4">
+      <div className="container mx-auto flex items-center justify-between px-6 h-20">
         {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center"
-          onClick={() => setIsOpen(false)}
-        >
+        <Link to="/" className="flex items-center">
           <img
-            src="/images/services/logo.png"
+            src="/images/services/logo4.png"
             alt="Innova Cleaning Logo"
-            className="h-10 w-auto"
+            className="h-16 w-auto md:h-20"
           />
-          <span className="ml-3 text-gray-900 text-2xl font-bold tracking-wide">
+          <span
+            className={`ml-3 text-2xl font-bold transition-colors ${
+              scrolled ? "text-blue-600" : "text-white"
+            }`}
+          >
             Innova Cleaning
           </span>
         </Link>
 
-        {/* Hamburger Button */}
+        {/* Navigation Links */}
+        <ul className="hidden md:flex space-x-6">
+          {[
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: "Reviews", path: "/reviews" },
+            { name: "About", path: "/about" },
+            { name: "Contact", path: "/contact" },
+          ].map((item, index) => (
+            <li key={index}>
+              <Link
+                to={item.path}
+                className={`text-lg font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? scrolled
+                      ? "text-blue-600"
+                      : "text-white"
+                    : scrolled
+                    ? "text-gray-700 hover:text-blue-600"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
-          className="text-gray-900 md:hidden focus:outline-none"
-          aria-label="Toggle Menu"
+          className={`md:hidden focus:outline-none ${
+            scrolled ? "text-gray-900" : "text-white"
+          }`}
         >
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
 
-        {/* Menu */}
-        <div
-          className={`fixed inset-0 bg-gray-800 bg-opacity-90 transform ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:bg-transparent`}
-        >
-          <ul className="flex flex-col md:flex-row justify-center items-center h-full md:h-auto space-y-6 md:space-y-0 md:space-x-6">
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="fixed inset-0 bg-gray-800 bg-opacity-90 flex flex-col justify-center items-center space-y-6 md:hidden">
             {[
               { name: "Home", path: "/" },
               { name: "Services", path: "/services" },
@@ -66,22 +92,17 @@ const Navbar = () => {
               { name: "About", path: "/about" },
               { name: "Contact", path: "/contact" },
             ].map((item, index) => (
-              <li key={index} className="text-center">
-                <Link
-                  to={item.path}
-                  className={`block text-lg font-semibold transition-colors duration-300 ${
-                    location.pathname === item.path
-                      ? "text-white underline"
-                      : "text-gray-300 hover:text-white"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </li>
+              <Link
+                key={index}
+                to={item.path}
+                className="text-white text-lg font-semibold"
+                onClick={toggleMenu}
+              >
+                {item.name}
+              </Link>
             ))}
-          </ul>
-        </div>
+          </div>
+        )}
       </div>
     </nav>
   );

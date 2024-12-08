@@ -83,16 +83,16 @@ const Services = () => {
   return (
     <div className="bg-gray-100">
       {/* Header */}
-      <header className="relative bg-gray-800 text-white py-20 text-center">
+      <header className="relative bg-gray-800 text-white text-center h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0">
           <img
-            src="/images/gallery/fondo1.jpeg" // Reemplaza con una imagen válida
+            src="/images/gallery/fondo1.jpeg"
             alt="Services Background"
-            className="object-cover w-full h-full opacity-60"
+            className="object-cover w-full h-full opacity-70"
           />
         </div>
         <div className="relative z-10">
-          <h1 className="text-4xl font-bold drop-shadow-lg">Our Services</h1>
+          <h1 className="text-5xl font-bold drop-shadow-lg">Our Services</h1>
           <p className="mt-4 text-lg text-gray-200">
             Professional solutions for all your commercial cleaning needs.
           </p>

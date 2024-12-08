@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Incluye todos los archivos donde usas Tailwind
   theme: {
     extend: {
       animation: {
@@ -23,6 +23,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'], // Fuente personalizada
+      },
+      colors: {
+        primary: '#1E40AF', // Azul personalizado (opcional)
+        secondary: '#FACC15', // Amarillo personalizado (opcional)
       },
     },
   },
