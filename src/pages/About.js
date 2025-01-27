@@ -75,17 +75,7 @@ const About = () => {
               {
                 name: "Erick Valenzuela",
                 role: "Founder & CEO",
-                image: "/images/team/erick.jpg", // Reemplaza con una imagen válida
-              },
-              {
-                name: "Justin Valenzuela",
-                role: "Operations Manager",
-                image: "/images/team/justin.jpg", // Reemplaza con una imagen válida
-              },
-              {
-                name: "Maria Rodriguez",
-                role: "Client Relations",
-                image: "/images/team/maria.jpg", // Reemplaza con una imagen válida
+                image: "/images/gallery/ErickVa.jpeg", // Reemplaza con una imagen válida
               },
             ].map((member, index) => (
               <div key={index} className="text-center">
@@ -105,19 +95,23 @@ const About = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-screen-lg mx-auto text-center">
-          <h3 className="text-lg font-bold">
-            Innova Commercial Cleaning Services
-          </h3>
-          <p className="mt-4">
-            Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM
-          </p>
+          <h3 className="text-lg font-bold">Innova Commercial Cleaning Services</h3>
+          <p className="mt-4">Business Hours: Mon-Fri: 9 AM - 6 PM | Sat: 10 AM - 4 PM</p>
           <div className="mt-6 flex justify-center space-x-4">
-            <button className="bg-green-500 px-4 py-2 rounded-md">
-              Call or Text
-            </button>
-            <button className="bg-blue-500 px-4 py-2 rounded-md">
-              Send Message
-            </button>
+            <a
+              href="/contact"
+              className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+            >
+              Contact Us
+            </a>
+            <a
+              href="https://wa.me/16462729728"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
+            >
+              Contact Us on WhatsApp
+            </a>
           </div>
         </div>
       </footer>
