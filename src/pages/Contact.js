@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,9 +10,17 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    const { name, email, message } = formData;
+
+    // Crear el enlace mailto
+    const mailtoLink = `mailto:generalmanager@innovacleanllc.com?subject=Contact%20from%20${encodeURIComponent(
+      name
+    )}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(
+      email
+    )}%0AMessage:%20${encodeURIComponent(message)}`;
+    
+    // Abrir el cliente de correo predeterminado
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -41,61 +48,55 @@ const Contact = () => {
           {/* Form */}
           <div className="bg-white shadow-lg rounded-md p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Get in Touch</h2>
-            {submitted ? (
-              <p className="text-green-500 font-semibold">
-                Thank you for your message! We'll get back to you soon.
-              </p>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 w-full"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2" htmlFor="name">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2" htmlFor="message">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 w-full"
+              >
+                Submit
+              </button>
+            </form>
           </div>
 
           {/* Map */}
@@ -114,7 +115,6 @@ const Contact = () => {
         </div>
       </div>
 
-      
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-screen-lg mx-auto text-center">
