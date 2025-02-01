@@ -31,7 +31,7 @@ const Navbar = ({ onMenuToggle }) => {
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
-            src="/images/services/logo4.png"
+            src="/images/services/llc6.png"
             alt="Innova Cleaning Logo"
             className="h-16 w-auto md:h-20"
           />
