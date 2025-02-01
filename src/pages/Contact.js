@@ -104,7 +104,7 @@ const Contact = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Location</h2>
             <iframe
               title="Google Maps Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193736.0720636108!2d-74.25159074214737!3d40.5795314745287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c244c2a3b4998d%3A0xe6dbefce29e8335e!2sStaten%20Island%2C%20NY!5e0!3m2!1sen!2sus!4v1685629273848!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97977.95668954067!2d-76.92686536124193!3d40.27319198584067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c8c1368e78a8c1%3A0x4224c305b23d1a48!2sHarrisburg%2C%20PA!5e0!3m2!1sen!2sus!4v1701465973848!5m2!1sen!2sus"
               width="100%"
               height="300"
               style={{ border: 0 }}
