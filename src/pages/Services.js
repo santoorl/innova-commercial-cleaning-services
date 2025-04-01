@@ -4,6 +4,8 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import moveInMoveOutImages from '../utils/loadMoveImages';
+
 
 const services = [
   {
@@ -66,6 +68,11 @@ const services = [
       "/images/services/carpet6.jpg",
       "/images/services/carpet7.jpg",
     ],
+  },
+  {
+    name: "Move In & Move Out Cleaning",
+    description: "Deep cleaning for people who are moving in or out of a property.",
+    images: moveInMoveOutImages,
   },
 ];
 
